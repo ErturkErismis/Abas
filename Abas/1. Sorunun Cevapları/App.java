@@ -57,6 +57,8 @@ public class App {
 
         List<Siparisler> siparisler=new ArrayList<>();
 
+
+        // Verilen tablonun class yardımıyla oluşturulması.
         Siparisler siparis=new Siparisler();
         siparis.setSiparis("1000");
         siparis.setMalNumarası("2000");
@@ -181,10 +183,16 @@ public class App {
         
 
 
-
+        //A şıkkının cevabı
         BirinciSoruASikki(siparisler);
+               
+        //B şıkkının cevabı
         BirinciSoruBSikki(siparisler);
+        
+        //C şıkkının cevabı
         BirinciSoruCSikki(siparisler);
+       
+        //D şıkkının cevabı
         BirinciSoruDSikki(siparisler);
 
 
@@ -193,6 +201,7 @@ public class App {
         
     }
 
+    //Siparişteki mal bazlı kaç adet mal olduğunu gösteren method.
     private static void BirinciSoruDSikki(List<Siparisler> siparisler) {
 
         HashMap<String,Integer> MalinAdeti=new HashMap<String,Integer>();
@@ -258,6 +267,7 @@ public class App {
         {
            
 
+            //Mal bazlı malların siparişler içindeki toplam fiyati HashMap yardımıyla tutlmuştur.
             if(MalinTutari.containsKey(siparisler.get(z).getMalNumarası()))
             {
                 MalinTutari.put(siparisler.get(z).getMalNumarası(), MalinTutari.get(siparisler.get(z).getMalNumarası())+(siparisler.get(z).getMiktar()*siparisler.get(z).getBirimFiyat()));
@@ -268,6 +278,8 @@ public class App {
 
             }
            
+            //Mal bazlı malların siparişler içindeki toplam miktarı HashMap yardımıyla tutlmuştur.
+
             if(MalinAdeti.containsKey(siparisler.get(z).getMalNumarası()))
             {
                 MalinAdeti.put(siparisler.get(z).getMalNumarası(), MalinAdeti .get(siparisler.get(z).getMalNumarası())+siparisler.get(z).getMiktar());
@@ -277,6 +289,8 @@ public class App {
                 MalinAdeti.put(siparisler.get(z).getMalNumarası(),siparisler.get(z).getMiktar());
 
             }
+
+            //Kaç çeşit mal olduğu tutulmuştur.
 
             if(!Mallar.contains(siparisler.get(z).getMalNumarası()))
             {
@@ -297,6 +311,8 @@ public class App {
 
     private static void BirinciSoruBSikki(List<Siparisler> siparisler) {
 
+
+    //Malların ortalama fiyaı için toplam fiyat bölü toplam miktar uygulanmıştır.
         double toplamTutar=0;
         int miktar=0;
         for(int z=0;z<siparisler.size();z++)
@@ -313,6 +329,7 @@ public class App {
     private static void BirinciSoruASikki(List<Siparisler> siparisler) {
 
 
+        //Malların toplam fiyatı için miktar ve birim fiyatlarının çarpımlarının toplamıyla bulunmuştur.
         double toplamTutar=0;
         for(int z=0;z<siparisler.size();z++)
         {
